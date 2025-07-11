@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quiz App</title>
+    <link rel="stylesheet" href="./src/styles/style.css" />
+    <script src="./src/main.ts" type="module"></script>
+  </head>
+  <body>
+    <main>
+      <div class="developer">
+        <p>Developed By Haider Ali</p>
+      </div>
+      <h1>Quiz App JS</h1>
+      <section class="container quiz">
+        <form action="" class="intro__form">
+          <div class="form__group">
+            <input type="text" id="name" class="form__input" placeholder=" " />
+            <label for="name" class="form__label">Your Name</label>
+          </div>
+          <button type="submit" class="form__btn">Start Quiz</button>
+        </form>
+
+        <p class="candidate-name"></p>
+        <section class="question">
+          <section class="current-question">
+            <p class="question__counter">
+              Question No <span class="question__current"></span> of
+              <span class="question__total"></span>
+            </p>
+            <div class="question__timer">
+              <p class="timer__minutes"></p>
+              <p class="timer__divider">:</p>
+              <p class="timer__seconds"></p>
+            </div>
+          </section>
+          <h1 class="question__title"></h1>
+          <ul class="question__choices"></ul>
+        </section>
+
+        <button class="next-question__btn">Next</button>
+
+        <section class="result">
+          <p class="remarks"></p>
+          <table>
+            <tr>
+              <td>Total Questions</td>
+              <td class="result__questions"></td>
+            </tr>
+            <tr>
+              <td>Attempted</td>
+              <td class="result__attempted"></td>
+            </tr>
+            <tr>
+              <td>Correct</td>
+              <td class="result__correct"></td>
+            </tr>
+            <tr>
+              <td>Wrong</td>
+              <td class="result__wrong"></td>
+            </tr>
+            <tr>
+              <td>Percentage</td>
+              <td class="result__percentage"></td>
+            </tr>
+          </table>
+
+          <div class="controls">
+            <div>
+              <button class="try-again__btn">Try Again</button>
+            </div>
+            <div>
+              <button class="go-home__btn">Go to Home</button>
+            </div>
+          </div>
+        </section>
+      </section>
+    </main>
+  </body>
+</html>

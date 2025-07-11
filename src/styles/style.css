@@ -1,0 +1,370 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap");
+
+:root {
+  --clr-white: hsl(0, 0%, 100%);
+  --clr-gray-500: hsl(0, 0%, 50%);
+  --clr-gray-400: hsl(0, 0%, 69%);
+
+  --clr-slate-500: hsl(210, 14%, 39%);
+  --clr-navy-800: hsl(210, 29%, 24%);
+  --clr-indigo-400: hsl(240, 51%, 67%);
+  --clr-blue-300: hsl(219, 67%, 72%);
+  --clr-teal-300: hsl(176, 68%, 74%);
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  line-height: 1.5;
+  font-family: "Open Sans", sans-serif;
+  background-color: var(--clr-slate-500);
+  min-height: 100vh;
+  display: flex;
+}
+
+ul {
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+  display: inline-block;
+}
+
+span {
+  display: inline-block;
+}
+
+input,
+button {
+  font: inherit;
+}
+
+.container {
+  max-width: 600px;
+  width: 100%;
+  padding-inline: 1rem;
+  margin-inline: auto;
+}
+
+/* Introduction Section */
+
+.developer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: var(--clr-navy-800);
+  color: var(--clr-white);
+  border-radius: 0 10px 10px 0;
+}
+
+.developer > p {
+  padding: clamp(0.7rem, 0.324vw + 0.578rem, 1rem);
+  font-size: clamp(1rem, 0.216vw + 0.919rem, 1.2rem);
+}
+
+main {
+  padding-inline: 1rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  font-size: 1.2rem;
+}
+
+main > h1 {
+  color: var(--clr-white);
+  font-size: 3rem;
+  text-align: center;
+}
+
+.quiz {
+  background-color: var(--clr-white);
+  border-radius: 4px;
+  font-size: 1.5rem;
+  padding: 3rem 1rem;
+  z-index: 1;
+  container-name: quiz;
+  container-type: inline-size;
+}
+
+.intro__form {
+  max-width: 500px;
+  width: 100%;
+  margin-inline: auto;
+}
+
+.form__group {
+  position: relative;
+}
+
+.form__group::before,
+.form__group::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  height: 2px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(100%);
+  background-color: var(--clr-gray-500);
+  transition: all 0.3s linear;
+}
+
+.form__group::after {
+  width: 0;
+  /* transform: scale(0); */
+  background: linear-gradient(
+    to right,
+    var(--clr-indigo-400),
+    var(--clr-blue-300),
+    var(--clr-teal-300)
+  );
+}
+
+.form__group:has(.form__input:not(:placeholder-shown))::after,
+.form__group:focus-within::after {
+  /* left: 1rem; */
+  /* transform: scale(1); */
+  width: calc(100%);
+}
+
+.form__input {
+  width: 100%;
+  font-size: 1.6rem;
+  padding: 1.8rem 0 0.5rem;
+  outline: none;
+  /* border: 1px solid gray; */
+  border: none;
+  border-radius: 4px;
+}
+
+.form__label {
+  position: absolute;
+  font-size: 1.6rem;
+  left: 0;
+  /* top: calc(18px); */
+  top: calc(13px + (34px / 2));
+  color: var(--clr-gray-500);
+  transform: translateY(-50%);
+  transition: all 0.3s ease;
+}
+
+.form__input:focus + .form__label,
+.form__input:not(:placeholder-shown) + .form__label {
+  top: 0;
+  left: 0;
+  transform: translateY(0);
+  /* transform: scale(0.875); */
+  /* transform: translateY(-50%) scale(0.85); */
+  font-size: 12px;
+  /* line-height: 18px; */
+  color: var(--clr-indigo-400);
+  /* background-color: white; */
+  /* padding-inline: 4px; */
+}
+
+.form__btn {
+  border: none;
+  background-color: var(--clr-indigo-400);
+  color: var(--clr-white);
+  padding: 0.75rem 1rem;
+  margin-top: 2rem;
+  border-radius: 4px;
+  display: block;
+  opacity: 0;
+  margin-inline: auto;
+  transform: translateY(20px);
+  transition: all 0.3s linear;
+}
+
+.form__btn--active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Introduction Section End */
+
+.question {
+  display: none;
+  flex-direction: column;
+  gap: 1rem;
+  padding-inline: 2rem;
+}
+
+.candidate-name {
+  display: none;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.current-question {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.question__current,
+.question__total {
+  font-weight: bold;
+}
+
+.question__timer {
+  width: 7rem;
+  height: 7rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  background-color: var(--clr-white);
+  position: relative;
+  --angle: 0deg;
+  --color: purple;
+}
+
+.question__timer::before {
+  content: "";
+  position: absolute;
+  box-sizing: content-box;
+  padding: 4px;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background-image: conic-gradient(
+    var(--color) var(--angle),
+    hsl(0, 3%, 85%) var(--angle)
+  );
+  z-index: -1;
+}
+
+/*  */
+.question__choices {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.question__choice {
+  padding: 0.75rem 1rem;
+  border-radius: 4px;
+  border: 1px solid var(--clr-blue-300);
+  cursor: pointer;
+}
+
+.question__choice--select {
+  background: linear-gradient(
+    to right,
+    var(--clr-indigo-400),
+    var(--clr-blue-300),
+    var(--clr-teal-300)
+  );
+  color: var(--clr-white);
+}
+
+/*  */
+
+.next-question__btn {
+  display: none;
+  border: none;
+  outline: none;
+  border-radius: 4px;
+  background-color: var(--clr-indigo-400);
+  color: var(--clr-white);
+  padding: 0.5rem 1rem;
+  margin-inline: 2rem;
+  margin-top: 2rem;
+}
+
+.next-question__btn:disabled {
+  cursor: not-allowed;
+  background-color: var(--clr-gray-500);
+}
+
+/* Result Card */
+.result {
+  max-width: 400px;
+  margin-inline: auto;
+  display: none;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.remarks {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.remarks--fail {
+  color: hsl(0, 100%, 50%);
+}
+
+.remarks--pass {
+  color: var(--clr-indigo-400);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+table tr {
+  border: 1px solid var(--clr-gray-500);
+}
+
+table tr td {
+  width: 50%;
+  padding: 1rem;
+  border: 1px;
+  border: 1px solid var(--clr-gray-500);
+}
+
+table tr td:last-child {
+  width: 50%;
+  text-align: center;
+  font-weight: bold;
+}
+
+.result .controls {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.controls > div:first-child {
+  text-align: right;
+}
+
+.result button {
+  padding: 1rem;
+  border-radius: 4px;
+  border: none;
+  outline: none;
+  background-color: var(--clr-indigo-400);
+  color: var(--clr-white);
+}
+
+@container quiz (width < 576px) {
+  .question__timer {
+    width: 5rem;
+    height: 5rem;
+  }
+  .question,
+  .next-question__btn,
+  .result {
+    font-size: 1.2rem;
+  }
+}
