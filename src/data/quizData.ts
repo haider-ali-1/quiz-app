@@ -32,22 +32,22 @@ const quizData: QuizQuestion[] = [
     choices: ["text-color", "font-color", "color", "background-color"],
     answer: "color",
   },
-  // {
-  //   question: "Which HTML attribute is used to define inline styles?",
-  //   choices: ["class", "style", "id", "css"],
-  //   answer: "style",
-  // },
-  // {
-  //   question: "How do you write a comment in JavaScript?",
-  //   choices: ["<!-- comment -->", "// comment", "# comment", "** comment **"],
-  //   answer: "// comment",
-  // },
-  // {
-  //   question:
-  //     "Which method adds an element to the end of an array in JavaScript?",
-  //   choices: ["push()", "pop()", "shift()", "concat()"],
-  //   answer: "push()",
-  // },
+  {
+    question: "Which HTML attribute is used to define inline styles?",
+    choices: ["class", "style", "id", "css"],
+    answer: "style",
+  },
+  {
+    question: "How do you write a comment in JavaScript?",
+    choices: ["<!-- comment -->", "// comment", "# comment", "** comment **"],
+    answer: "// comment",
+  },
+  {
+    question:
+      "Which method adds an element to the end of an array in JavaScript?",
+    choices: ["push()", "pop()", "shift()", "concat()"],
+    answer: "push()",
+  },
   // {
   //   question: "How do you select an element with the ID 'main' in CSS?",
   //   choices: ["#main", ".main", "main", "$main"],
